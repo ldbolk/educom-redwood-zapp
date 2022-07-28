@@ -58,12 +58,35 @@ const SignupPage = () => {
             <div className="rw-segment-main">
               <div className="rw-form-wrapper">
                 <Form onSubmit={onSubmit} className="rw-form-wrapper">
+
+                <Label
+                    name="naam"
+                    className="rw-label"
+                    errorClassName="rw-label rw-label-error"
+                  >
+                    Naam
+                  </Label>
+
+                <TextField
+                    name="naam"
+                    className="rw-input"
+                    errorClassName="rw-input rw-input-error"
+                    validation={{
+                      required: {
+                        value: true,
+                        message: 'naam is required',
+                      },
+                    }}
+                  />
+
+                  <FieldError name="naam" className="rw-field-error" />
+
                   <Label
                     name="username"
                     className="rw-label"
                     errorClassName="rw-label rw-label-error"
                   >
-                    Username
+                    Email
                   </Label>
 
                   <TextField

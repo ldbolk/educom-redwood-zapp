@@ -101,15 +101,16 @@ export const handler = async (event, context) => {
     //
     // If this returns anything else, it will be returned by the
     // `signUp()` function in the form of: `{ message: 'String here' }`.
-    handler: ({ username, hashedPassword, salt, userAttributes }) => {
+    handler: ({ username, naam, hashedPassword, salt, adres, postcode, woonplaats, userAttributes }) => {
       return db.user.create({
         data: {
           email: username,
+          naam: userAttributes.naam,
           hashedPassword: hashedPassword,
           salt: salt,
-          adres: adres,
-          postcode: postcode,
-          woonplaats: woonplaats
+          adres: userAttributes.adres,
+          postcode: userAttributes.postcode,
+          woonplaats: userAttributes.woonplaats
           // name: userAttributes.name
         },
       })
@@ -136,6 +137,9 @@ export const handler = async (event, context) => {
     authFields: {
       id: 'id',
       username: 'email',
+      adres: 'adres',
+      postcode: 'postcode',
+      woonplaats: 'woonplaats',
       hashedPassword: 'hashedPassword',
       salt: 'salt',
       resetToken: 'resetToken',
