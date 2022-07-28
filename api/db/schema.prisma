@@ -8,7 +8,21 @@ generator client {
   binaryTargets = "native"
 }
 
-// model Klant {
+//model Medewerker {
+//  id                    Int @id @default(autoincrement())
+//  naam                  String
+//  email                 String  @unique
+//  hashedPassword        String
+//  salt                  String
+//  resetToken            String?
+//  resetTokenExpiresAt   DateTime?
+//  adres                 String
+//  postcode              String
+//  woonplaats            String
+//  roles                 String @default("admin")
+//}
+
+//model Klant {
 //  id                    Int @id @default(autoincrement())
 //  naam                  String
 //  email                 String @unique
@@ -17,11 +31,26 @@ generator client {
 //  resetToken            String?
 //  resetTokenExpiresAt   DateTime?
 //  adres                 String
-//  postcode              String
-//  woonplaats            String
-//  taken                 Taken[]
-// }
+// postcode              String
+// woonplaats            String
+// roles                 String @default("klant")
+//}
 
+ model User {
+  id                    Int @id @default(autoincrement())
+  naam                  String
+  email                 String @unique
+  hashedPassword        String
+  salt                  String
+  resetToken            String?
+  resetTokenExpiresAt   DateTime?
+  adres                 String
+  postcode              String
+  woonplaats            String
+  roles                 String @default("klant")
+ }
+
+// Prolly should've named this Taak, huh?
 model Taken {
   id          Int @id @default(autoincrement())
   taak        String
