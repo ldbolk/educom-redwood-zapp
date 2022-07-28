@@ -19,8 +19,8 @@ const HeaderLayout = ({ children }) => {
               </Link>
             </li>
             <li>
-              <Link to={routes.home()}>
-                Contact
+              <Link to={routes.takens()}>
+                Taken
               </Link>
             </li>
           </ul>

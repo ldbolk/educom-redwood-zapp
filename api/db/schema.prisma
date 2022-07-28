@@ -9,15 +9,17 @@ generator client {
 }
 
 // model Klant {
-//  id              Int @id @default(autoincrement())
-//  naam            String
-//  email           String @unique
-//  hashedPassword  String
-//  salt            String
-//  adres           String
-//  postcode        String
-//  woonplaats      String
-//  taken           Taken[]
+//  id                    Int @id @default(autoincrement())
+//  naam                  String
+//  email                 String @unique
+//  hashedPassword        String
+//  salt                  String
+//  resetToken            String?
+//  resetTokenExpiresAt   DateTime?
+//  adres                 String
+//  postcode              String
+//  woonplaats            String
+//  taken                 Taken[]
 // }
 
 model Taken {

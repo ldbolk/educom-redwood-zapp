@@ -67,7 +67,7 @@ const Taken = ({ taken }) => {
       <div className="rw-segment">
         <header className="rw-segment-header">
           <h2 className="rw-heading rw-heading-secondary">
-            Taken {taken.id} Detail
+            Taak {taken.id} Detail
           </h2>
         </header>
 

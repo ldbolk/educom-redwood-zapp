@@ -30,7 +30,7 @@ const NewTaken = () => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Taken</h2>
+        <h2 className="rw-heading rw-heading-secondary">Nieuwe Taak</h2>
       </header>
 
       <div className="rw-segment-main">

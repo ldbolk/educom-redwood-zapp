@@ -9,12 +9,12 @@ const TakensLayout = ({ children }) => {
       <header className="rw-header">
         <h1 className="rw-heading rw-heading-primary">
           <Link to={routes.takens()} className="rw-link">
-            Takens
+            Taken
           </Link>
         </h1>
 
         <Link to={routes.newTaken()} className="rw-button rw-button-green">
-          <div className="rw-button-icon">+</div> New Taken
+          <div className="rw-button-icon">+</div> Nieuwe Taak
         </Link>
       </header>
 
