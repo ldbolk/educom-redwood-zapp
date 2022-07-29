@@ -15,7 +15,8 @@ const HeaderLayout = ({ children }) => {
         </h1>
         {isAuthenticated ? (
             <div>
-              <span>Logged in as {currentUser.naam}</span>{' '}
+              <span>You're logged in</span>{' '}
+              {/* As currentUser.naam */}
               <button type='button' onClick={logOut}> Logout </button>
             </div>
           ) : (
