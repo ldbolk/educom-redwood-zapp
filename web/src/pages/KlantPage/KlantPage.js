@@ -9,14 +9,7 @@ const KlantPage = () => {
       <h1>KlantPage</h1>
 
       <p>
-        Find me in
-        <code>./web/src/pages/KlantPage/KlantPage.js</code>
-      </p>
-
-      <p>
-        My default route is named
-        <code>klant</code>, link to me with `
-        <Link to={routes.klant()}>Klant</Link>`
+        Import klant gegevens, taken, buttons
       </p>
     </>
   )

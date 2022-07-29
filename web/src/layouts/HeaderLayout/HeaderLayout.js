@@ -3,8 +3,7 @@ import { useAuth } from '@redwoodjs/auth'
 import { Toaster } from '@redwoodjs/web/toast'
 
 const HeaderLayout = ({ children }) => {
-  const { isAuthenticated, currentUser, logOut } = useAuth();
-
+  const { isAuthenticated, currentUser, logOut, hasRole } = useAuth();
   return(
     <>
     <Toaster />
@@ -14,14 +13,14 @@ const HeaderLayout = ({ children }) => {
             Logo and some text maybe
           </Link>
         </h1>
-        {/* {isAuthenticated ? (
+        {isAuthenticated ? (
             <div>
-              <span>Logged in as {currentUser.email}</span>{' '}
+              <span>Logged in as {currentUser.naam}</span>{' '}
               <button type='button' onClick={logOut}> Logout </button>
             </div>
           ) : (
             <Link to={routes.login()}>Login</Link>
-          )} */}
+          )}
         <nav>
           <ul>
             <li>
@@ -29,11 +28,11 @@ const HeaderLayout = ({ children }) => {
                 Klant
               </Link>
             </li>
-            <li>
-              <Link to={routes.takens()}>
-                Taken
-              </Link>
-            </li>
+            {hasRole('admin') && (
+              <li>
+                <Link to={routes.takens()}>Taken</Link>
+              </li>
+            )}
           </ul>
         </nav>
       </header>

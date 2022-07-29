@@ -20,7 +20,7 @@ const Routes = () => {
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       <Set wrap={HeaderLayout}>
-      <Private>
+      <Private unauthenticated="home" roles="admin">
       <Set wrap={TakensLayout}>
         <Route path="/taken/new" page={TakenNewTakenPage} name="newTaken" />
         <Route path="/taken/{id:Int}/edit" page={TakenEditTakenPage} name="editTaken" />
