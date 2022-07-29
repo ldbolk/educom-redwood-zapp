@@ -37,9 +37,9 @@ generator client {
 //}
 
  model User {
-  id                    Int @id @default(autoincrement())
+  id                    Int       @id   @default(autoincrement())
   naam                  String
-  email                 String @unique
+  email                 String    @unique
   hashedPassword        String
   salt                  String
   resetToken            String?
@@ -47,7 +47,19 @@ generator client {
   adres                 String
   postcode              String
   woonplaats            String
-  roles                 String @default("klant")
+  roles                 String    @default("klant")
+  Medewerker            Bezoek[]  @relation("Medewerker")
+  Klant                 Bezoek[]  @relation("Klant")
+ }
+
+ model Bezoek {
+  id                    Int       @id   @default(autoincrement())
+  klantId               Int
+  medewerkerId          Int
+  klant                 User      @relation("Klant", fields: [klantId], references: [id])
+  medewerker            User      @relation("Medewerker", fields: [medewerkerId], references: [id])
+  taakList              Taken[]
+  createdAt             DateTime  @default(now())
  }
 
 // Prolly should've named this Taak, huh?
@@ -55,6 +67,7 @@ model Taken {
   id          Int @id @default(autoincrement())
   taak        String
   extra       String?
+  bezoeken    Bezoek[]
 }
 
 
