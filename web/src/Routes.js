@@ -10,6 +10,7 @@
 import { Router, Route, Set, Private } from '@redwoodjs/router'
 
 import TakensLayout from 'src/layouts/TakensLayout'
+import UsersLayout from './layouts/UsersLayout/UsersLayout'
 import HeaderLayout from './layouts/HeaderLayout/HeaderLayout'
 
 const Routes = () => {
@@ -29,6 +30,12 @@ const Routes = () => {
       </Set>
       </Private>
       <Route path="/klant" page={KlantPage} name="klant" />
+      <Set wrap={UsersLayout}>
+        <Route path="/user/new" page={KlantenNewKlantPage} name="newUser" />
+        <Route path="/user/{id:Int}/edit" page={KlantenEditKlantPage} name="editUser" />
+        <Route path="/user/{id:Int}" page={KlantenKlantPage} name="user" />
+        <Route path="/users" page={KlantenKlantenPage} name="users" />
+      </Set>
       <Route path="/" page={HomePage} name="home" />
       </Set>
       <Route notfound page={NotFoundPage} />
