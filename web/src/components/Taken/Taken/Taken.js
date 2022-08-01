@@ -84,7 +84,7 @@ const Taken = ({ taken }) => {
               <td>{taken.taak}</td>
             </tr>
             <tr>
-              <th>Extra</th>
+              <th>Extra informatie</th>
 
               <td>{taken.extra}</td>
             </tr>

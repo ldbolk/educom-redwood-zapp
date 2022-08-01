@@ -10,7 +10,7 @@ const HeaderLayout = ({ children }) => {
       <header>
         <h1>
           <Link to={routes.home()}>
-            Logo and some text maybe
+            <img src="https://e-learning.educom.nu/assets/images/zapp-banner-6cdd55cdd42815c9c28dd9443933187f.png" width="350" height="115"></img>
           </Link>
         </h1>
         {isAuthenticated ? (
@@ -29,7 +29,7 @@ const HeaderLayout = ({ children }) => {
                 Klant
               </Link>
             </li>
-            {hasRole('admin') && (
+            {hasRole('klant') && (
               <li>
                 <Link to={routes.takens()}>Taken</Link>
               </li>

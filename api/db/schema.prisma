@@ -50,6 +50,7 @@ generator client {
   roles                 String    @default("klant")
   Medewerker            Bezoek[]  @relation("Medewerker")
   Klant                 Bezoek[]  @relation("Klant")
+  vasteTaken            vasteTaken[]
  }
 
  model Bezoek {
@@ -64,10 +65,21 @@ generator client {
 
 // Prolly should've named this Taak, huh?
 model Taken {
-  id          Int @id @default(autoincrement())
-  taak        String
-  extra       String?
-  bezoeken    Bezoek[]
+  id                    Int @id @default(autoincrement())
+  taak                  String
+  extra                 String?
+  bezoeken              Bezoek[]
+  klanten               vasteTaken[]
+}
+
+model vasteTaken {
+  klant                 User @relation(fields: [klantId], references: [id])
+  klantId               Int
+  taak                  Taken @relation(fields: [taakId], references: [id])
+  taakId                Int
+  createdAt             DateTime @default(now())
+
+  @@id([klantId, taakId])
 }
 
 
