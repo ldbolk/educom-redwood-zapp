@@ -1,27 +1,30 @@
 import { Link, routes } from '@redwoodjs/router'
 
-import Takens from 'src/components/Taken/Takens'
+import Klanten from '../Klanten/Klanten';
 
 export const QUERY = gql`
-  query FindTakens {
-    takens {
+  query FindKlanten {
+    klanten {
       id
-      taak
-      extra
+      naam
+      email
+      adres
+      postcode
+      woonplaats
     }
   }
 `
 
-console.log(Takens)
+console.log(Klanten)
 
 export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => {
   return (
     <div className="rw-text-center">
-      {'No takens yet. '}
+      {'No klanten yet. '}
 
-      <Link to={routes.newTaken()} className="rw-link">
+      <Link to={routes.newKlant()} className="rw-link">
         {'Create one?'}
       </Link>
     </div>
@@ -32,6 +35,6 @@ export const Failure = ({ error }) => (
   <div className="rw-cell-error">{error.message}</div>
 )
 
-export const Success = ({ takens }) => {
-  return <Takens takens={takens} />
+export const Success = ({ klanten }) => {
+  return <Klanten klanten={klanten} />
 }

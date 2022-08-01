@@ -26,7 +26,7 @@ const HeaderLayout = ({ children }) => {
           <ul>
             <li>
               <Link to={routes.klant()}>
-                Klant
+                Klanten
               </Link>
             </li>
             {hasRole('klant') && (
